@@ -51,7 +51,7 @@ uint32_t s_queue_size(s_queue_t *q);
  * @param value value to be added
  * @return true if the operation is successful, false otherwise
  */
-bool s_qeueu_enqueue(s_queue_t *q, uint32_t value);
+bool s_queue_enqueue(s_queue_t *q, uint32_t value);
 
 /**
  * @brief Remove an element from the front of the static queue

@@ -36,3 +36,16 @@ jobs:
       run: |
         make dynamic_stack.o 
         make static_stack.o
+
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: throwtheswitch/madsciencelab:latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Test queue
+      run: |
+        ceedling test:all
+
