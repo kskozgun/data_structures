@@ -7,6 +7,13 @@
 
 
 /**
+ * @brief Placeholder for ASSERT macro
+ * 
+ * @note In production code, replace this with actual assertion handling.
+ */
+#define ASSERT(expr) ((void)0)
+
+/**
  * @brief Node structure for the queue
  */
 typedef struct queue_node_t{
