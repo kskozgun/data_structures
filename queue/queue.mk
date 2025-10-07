@@ -13,12 +13,14 @@ dynamic_queue.o: $(DYNAMIC_QUEUE_SRC) $(DYNAMIC_QUEUE_HDR)
 	@echo "Compiling dynamic queue, directory: $(current_dir)"
 	@echo "--------------------------------------------------"
 	$(CC) $(CFLAGS) -c $(DYNAMIC_QUEUE_SRC) -I$(current_dir)
+	@echo "--------------------------------------------------"
 
 # Compile static queue
 static_queue.o: $(STATIC_QUEUE_SRC) $(STATIC_QUEUE_HDR)
 	@echo "Compiling static queue, directory: $(current_dir)"
 	@echo "--------------------------------------------------"
 	$(CC) $(CFLAGS) -c $(STATIC_QUEUE_SRC) -I$(current_dir)
+	@echo "--------------------------------------------------"
 
 # Clean up
 clean:

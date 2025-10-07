@@ -1,6 +1,7 @@
 #include "dynamic_queue.h"
 
-queue_t *d_queue_create(void) {
+queue_t *d_queue_create(void) 
+{
     queue_t *q = malloc(sizeof(queue_t));
 
     if(q == NULL) {
@@ -14,10 +15,9 @@ queue_t *d_queue_create(void) {
     return q;
 }
 
-bool d_queue_is_empty(queue_t *q) {
-    if(q == NULL) {
-        return false;
-    }
+bool d_queue_is_empty(queue_t *q) 
+{
+    ASSERT(q);
 
     uint32_t size = q->size;
 
@@ -29,18 +29,16 @@ bool d_queue_is_empty(queue_t *q) {
 
 uint32_t d_queue_size(queue_t *q)
 {
-    if(q == NULL) {
-        return 0U;
-    }
+    ASSERT(q);
+
     uint32_t size = q->size;
     return size;
 }
 
 
-bool d_queue_enqueue(queue_t *q, uint32_t value) {
-    if(q == NULL) {
-        return false;
-    }
+bool d_queue_enqueue(queue_t *q, uint32_t value) 
+{
+    ASSERT(q);
 
     uint32_t is_empty = d_queue_is_empty(q);
     queue_node_t *new_node = (queue_node_t*)malloc(sizeof(queue_node_t));
@@ -64,9 +62,12 @@ bool d_queue_enqueue(queue_t *q, uint32_t value) {
     return true;
 }
 
-bool d_queue_front(queue_t *q, uint32_t *value) {
-    if((q == NULL) || d_queue_is_empty(q)) {
-        return NULL;
+bool d_queue_front(queue_t *q, uint32_t *value) 
+{
+    ASSERT(q && value);    
+    
+    if(d_queue_is_empty(q)) {
+        return false;
     }
 
     *value = q->front->data;
@@ -74,8 +75,11 @@ bool d_queue_front(queue_t *q, uint32_t *value) {
     return true;
 }
 
-bool d_queue_dequeue(queue_t *q, uint32_t *value) {
-    if(q == NULL || d_queue_is_empty(q)) {
+bool d_queue_dequeue(queue_t *q, uint32_t *value) 
+{
+    ASSERT(q && value);
+
+    if(d_queue_is_empty(q)) {
         return false;
     }
 
